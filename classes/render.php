@@ -12,6 +12,13 @@ class Render
     return $output;
   }
   
+  public function __toString()
+  {
+    $output="\nThe following methods are available for " . __CLASS__ ." objects: \n";
+    $output .=implode("\n", get_class_methods(__CLASS__));
+    return $output;
+  }
+  
   public static function displayRecipe($recipe)
   {
     $output="";
