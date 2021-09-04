@@ -1,6 +1,7 @@
 <?php 
 
 include "classes/recipe.php";
+include "classes/render.php";
 
 $recipe1=new Recipe();
 $recipe1 ->setTitle("my first recipe");
@@ -17,11 +18,4 @@ $recipe2=new Recipe();
 $recipe2 ->setTitle("my second recipe");
 $recipe2->setSource("Betty Crocker");
 
-echo $recipe1->getTitle();
-foreach($recipe1->getIngredients() as $ing){
-  echo "\n" . $ing["amount"] . " " . $ing["measure"]. " " . $ing["item"];
-}
-echo "\n". implode("\n", $recipe1->getInstructions());
-echo "\n". implode("\n", $recipe1->getTags());
-echo "\n". $recipe1->getSource();
-echo "\n". $recipe1->getYield();
+echo Render::displayRecipe($recipe1);
